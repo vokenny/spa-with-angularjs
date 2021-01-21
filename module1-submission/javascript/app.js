@@ -28,7 +28,11 @@
   }
 
   function normalizeInput(input) {
-    return input.trim().split(',').filter(Boolean);
+    return input
+      .trim()
+      .split(',')
+      .filter(Boolean)
+      .filter(function (el) { return el.trim() != '' });
   }
 
 })();
