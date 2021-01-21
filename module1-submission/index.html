@@ -14,7 +14,19 @@
   <body ng-app="LunchCheck">
     <div class="container" ng-controller="LunchCheckController">
       <h1>Lunch Checker</h1>
-      <p>Empty items are NOT counted</p>
+      <p>All three optional tasks completed as well:</p>
+      <ul>
+        <li>
+          If the message is "Enjoy!" or "Too much!", make the font color green.
+          If the message is "Please enter data first", make the font color red.
+        </li>
+        <li>
+          If the message is "Enjoy!" or "Too much!", make the border color
+          around the textbox green. If the message is "Please enter data first",
+          make the border color around the textbox red.
+        </li>
+        <li>No empty or whitespace items are counted</li>
+      </ul>
       <div class="form-group">
         <input
           id="lunch-menu"
