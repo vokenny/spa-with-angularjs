@@ -54,12 +54,5 @@ input[type='text'] {
 found-items {
   clear: both;
   display: block;
-}
-
-li.list-item {
-  margin-bottom: 1vh;
-}
-
-button.remove-btn {
-  margin-left: 1vw;
+  padding-top: 2vh;
 }
