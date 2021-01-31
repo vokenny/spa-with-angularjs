@@ -51,17 +51,9 @@ input[type='text'] {
   }
 }
 
-div.error {
-  color: red;
-}
-
 found-items {
   clear: both;
   display: block;
-}
-
-p.task-desc {
-  clear: left;
 }
 
 li.list-item {

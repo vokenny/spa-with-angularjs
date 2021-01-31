@@ -65,7 +65,8 @@
       templateUrl: './views/foundItems.html',
       scope: {
         filteredItems: '<',
-        remove: '&'
+        remove: '&',
+        noMatch: '<'
       },
       controller: FoundItemsDirectiveController,
       controllerAs: 'foundItems',

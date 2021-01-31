@@ -24,18 +24,12 @@
         </button>
       </div>
 
-      <p class="task-desc">
-        TASK: [...] do a simple check if the string being searched for by the
-        user appears anywhere in the <strong>description</strong> of the item.
-      </p>
-
       <!-- found-items should be implemented as a component -->
       <found-items
         filtered-items="search.found"
         remove="search.removeItem(index)"
+        no-match="search.noMatchFound"
       ></found-items>
-
-      <div class="error" ng-show="search.noMatchFound">Nothing found</div>
     </div>
 
     <script
