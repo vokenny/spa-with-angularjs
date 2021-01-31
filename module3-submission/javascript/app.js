@@ -20,16 +20,11 @@
         search.found = [];
         search.noMatchFound = true;
       } else {
-        // 1. Make network request to get all menu items
-        let menuItemPromise = MenuSearchService.getAllMenuItems();
+        let menuItemPromise = MenuSearchService.getMatchedMenuItems($scope.query);
 
-        // 2. Wait for Promise to complete
-        menuItemPromise.then(function (response) {
-          // 3. Set filtered menu items containing search query in item description to search.found
-          search.found = response.data
-            .menu_items
-            .filter(item => item.description.indexOf($scope.query) !== -1);
-
+        menuItemPromise.then(function (filteredItems) {
+          // 3. Expose filtered menu items on controller scope
+          search.found = filteredItems;
           search.noMatchFound = search.found.length === 0;
         }).catch(function (error) {
           console.log(error);
@@ -45,6 +40,17 @@
   MenuSearchService.$inject = ['$http', 'baseUrl']
   function MenuSearchService($http, baseUrl) {
     const menu = this;
+
+    menu.getMatchedMenuItems = function (query) {
+      // 1. Make network request to get all menu items
+      return menu.getAllMenuItems()
+        .then(function (response) {
+          // 2. Filter and return all menu items that contain the query in the item description
+          return response.data
+            .menu_items
+            .filter(item => item.description.indexOf(query) !== -1);
+        })
+    }
 
     menu.getAllMenuItems = function () {
       return $http({
@@ -70,4 +76,5 @@
   }
 
   function FoundItemsDirectiveController() { }
+
 }());
