@@ -6,7 +6,7 @@
     .module('MenuApp')
     .config(RoutesConfig);
 
-  RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider']
+  RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function RoutesConfig($stateProvider, $urlRouterProvider) {
     //  If URL cannot match, default to 
     $urlRouterProvider.otherwise('/');
@@ -29,6 +29,18 @@
           }]
         }
       })
+
+      // Category Items state
+      .state('items', {
+        url: '/items/{categoryShortName}',
+        templateUrl: 'src/templates/items.html',
+        controller: 'CategoryItemsController as categoryItems',
+        resolve: {
+          items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+            return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+          }]
+        }
+      });
   }
 
 })();

@@ -3,11 +3,11 @@
   'use strict';
 
   angular
-    .module('data')
+    .module('Data')
     .constant('baseUrl', 'https://davids-restaurant.herokuapp.com')
     .service('MenuDataService', MenuDataService);
 
-  MenuDataService.$inject = ['$http', 'baseUrl']
+  MenuDataService.$inject = ['$http', 'baseUrl'];
   function MenuDataService($http, baseUrl) {
     const menu = this;
 
@@ -16,11 +16,22 @@
         method: 'GET',
         url: `${baseUrl}/categories.json`
       }).then(function (response) {
-        return response.data
+        return response.data;
       }).catch(function (error) {
-        console.log(error)
+        console.log(error);
       });
-    }
+    };
+
+    menu.getItemsForCategory = function (catShortName) {
+      return $http({
+        method: 'GET',
+        url: `${baseUrl}/menu_items.json?category=${catShortName}`
+      }).then(function (response) {
+        return response.data;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    };
   }
 
 })();

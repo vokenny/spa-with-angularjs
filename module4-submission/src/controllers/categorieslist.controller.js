@@ -6,7 +6,7 @@
     .module('MenuApp')
     .controller('CategoriesListController', CategoriesListController);
 
-  CategoriesListController.$inject = ['menuCategories']
+  CategoriesListController.$inject = ['menuCategories'];
   function CategoriesListController(menuCategories) {
     const cats = this;
 
