@@ -4,7 +4,6 @@
 
   angular
     .module('Data')
-    .constant('baseUrl', 'https://davids-restaurant.herokuapp.com')
     .service('MenuDataService', MenuDataService);
 
   MenuDataService.$inject = ['$http', 'baseUrl'];
