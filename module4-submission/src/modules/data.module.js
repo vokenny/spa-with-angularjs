@@ -4,4 +4,4 @@
 
   angular.module('data', []);
 
-}());
+})();
