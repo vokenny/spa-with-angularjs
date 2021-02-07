@@ -1,21 +1,22 @@
 <table
-  class="table table-striped table-bordered"
+  class="table table-striped table-bordered col-xs-12 col-lg-10"
   aria-describedby="List of menu items"
 >
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
+      <th scope="col">Menu Item</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="item in $ctrl.items">
       <td>
-        <span>{{item.short_name}}</span>
+        <p>{{item.short_name}}</p>
       </td>
-      <td>{{item.name}}</td>
-      <td>{{item.description}}</td>
+      <td>
+        <strong>{{item.name}}</strong>
+        <p>{{item.description}}</p>
+      </td>
     </tr>
   </tbody>
 </table>
