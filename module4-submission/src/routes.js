@@ -8,7 +8,7 @@
 
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function RoutesConfig($stateProvider, $urlRouterProvider) {
-    //  If URL cannot match, default to 
+    //  If URL cannot match, default to Home state, linked to the '/' URL
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
